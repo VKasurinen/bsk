@@ -16,7 +16,7 @@ class TestBowlingGame(unittest.TestCase):
         game = BowlingGame()
         self.assertRaises(BowlingError, game.get_frame_at,0)
 
-    def test_game_created_11_frames(self):
+    def test_game_created_10_frames(self):
         game = BowlingGame()
         game.add_frame(Frame(1,5))
         game.add_frame(Frame(3,6))
