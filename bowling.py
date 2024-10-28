@@ -6,7 +6,7 @@ class BowlingGame:
 
     def __init__(self):
         self._frames = []
-    
+
     def add_frame(self, frame: Frame) -> None:
         if len(self._frames) == 10:
             raise BowlingError
@@ -18,7 +18,16 @@ class BowlingGame:
         return self._frames[i]
 
     def calculate_score(self) -> int:
-        pass
+        score = 0
+        is_spare = False
+        for frame in self._frames:
+            if is_spare:
+                score = score + frame.get_first_throw()
+                is_spare = False
+            if frame.is_spare():
+                is_spare = True
+            score = score + frame.score()
+        return score
 
     def set_first_bonus_throw(self, bonus_throw: int) -> None:
         pass
